@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка документа</title>
+    <link rel="stylesheet" href="/static/upload_styles.css">
+</head>
+<body>
+    <h1>Загрузить документ</h1>
+    <form action="/admin/upload_document" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required><br>
+        <input type="text" name="password" placeholder="Пароль для шифрования" required><br>
+        <button type="submit" class="btn primary">Загрузить</button>
+    </form>
+    <a href="/admin" class="btn secondary">Назад</a>
+</body>
+</html>

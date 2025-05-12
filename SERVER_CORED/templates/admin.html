@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ Панель</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+    <h1>Админ Панель: Пользователи</h1>
+    <div class="actions">
+            <a href="/admin/add_user_form" class="btn primary">Добавить Пользователя</a>
+            <a href="/admin/backup" class="btn backup">Создать Бэкап</a>
+            <a href="/admin/upload_document_form" class="btn primary">Прикрепить документ</a>
+        </div>
+    <table>
+        <tr>
+            <th>Логин</th>
+            <th>ФИО</th>
+            <th>Телефон</th>
+            <th>Роль</th>
+            <th>Дата создания</th>
+            <th>Email Подтвержден</th>
+            <th>Заблокирован</th>
+            <th>Действия</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[4] }}</td>
+            <td>{{ user[5] }}</td>
+            <td>{{ user[6] }}</td>
+            <td>{{ "Да" if user[8] else "Нет" }}</td>
+            <td>{{ "Да" if user[11] else "Нет" }}</td>
+            <td>
+                <a href="/admin/delete/{{ user[0] }}" class="btn delete">Удалить</a>
+                <a href="/admin/unblock/{{ user[0] }}" class="btn unblock">Разблокировать</a>
+                <a href="/admin/restore/{{ user[0] }}" class="btn restore">Восстановить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
